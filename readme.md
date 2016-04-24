@@ -13,7 +13,7 @@ Simple IMAP wrapper.
 
 ## Install
 ```sh
-$ composer require minetro/imap:~1.1.0
+$ composer require petnov/imap:~1.1.0
 ```
 
 ## Usage
