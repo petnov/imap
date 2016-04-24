@@ -2,12 +2,13 @@
 
 namespace Minetro\Imap;
 
+use Nette\Object;
 /**
  * Imap Reader
  *
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  */
-final class ImapReader
+final class ImapReader extends Object
 {
 
     // Message criteria

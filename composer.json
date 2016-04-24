@@ -19,5 +19,8 @@
   },
   "autoload": {
     "classmap": ["src/"]
+  },
+  "require": {
+    "nette/utils": "^2.3"
   }
 }

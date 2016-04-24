@@ -4,13 +4,14 @@ namespace Minetro\Imap;
 
 use Nette\InvalidArgumentException;
 use stdClass;
+use Nette\Object;
 
 /**
  * Imap Message
  *
  * @author Milan Felix Sulc <sulcmil@gmail.com>
  */
-class ImapMessage
+class ImapMessage extends Object
 {
 
     // Message flags
