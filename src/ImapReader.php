@@ -49,6 +49,12 @@ final class ImapReader
     private $password;
 
     /**
+     * onRead event
+     * @var array
+     */
+    public $onRead = [];
+
+    /**
      * Create IMAP resource
      *
      * @param string $mailbox
@@ -112,7 +118,9 @@ final class ImapReader
                 $sections[] = imap_body($this->imap, $mailnum);
             }
 
-            $emails[] = new ImapMessage($mailnum, $headers, $structure, $sections);
+            $email = new ImapMessage($mailnum, $headers, $structure, $sections);
+            $this->onRead($this, $email);
+            $emails[] = $email;
         }
 
         return $emails;
@@ -199,7 +207,7 @@ final class ImapReader
         // Flush all messages out
         imap_errors();
         imap_alerts();
-        
+
         imap_close($this->imap);
     }
 }

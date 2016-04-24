@@ -1,13 +1,17 @@
 {
-  "name": "minetro/imap",
-  "description": "Simple IMAP wrapper",
+  "name": "petnovcz/imap",
+  "description": "Simple IMAP wrapper - with events",
   "type": "library",
   "license": ["BSD-3-Clause"],
-  "homepage": "https://github.com/minetro/imap",
+  "homepage": "https://github.com/petnov/imap",
   "authors": [
     {
       "name": "Milan Felix Sulc",
       "homepage": "http://jfx.cz"
+    },
+    {
+      "name": "Petr Novotny",
+      "homepage": "http://github.com/petnov/imap"
     }
   ],
   "require-dev": {
