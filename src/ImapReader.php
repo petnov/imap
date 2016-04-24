@@ -178,6 +178,10 @@ final class ImapReader extends Object
      */
     function __call($name, $arguments)
     {
+    	if (strpos($name, 'imap_') === FALSE) {
+    		return parent::__call($name, $arguments);
+    	}
+
         $args = $arguments;
         array_unshift($args, $this->imap);
         return call_user_func_array('imap_' . $name, $args);
