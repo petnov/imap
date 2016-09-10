@@ -99,7 +99,7 @@ final class ImapReader extends Object
      * @param int $options
      * @return ImapMessage[]
      */
-    public function read($criteria = 'ALL', $options = SE_FREE)
+    public function read($criteria = 'ALL', $options = SE_FREE, $readPartNum = null)
     {
         $mails = imap_search($this->imap, $criteria, $options);
         if (!$mails) return [];
@@ -111,9 +111,14 @@ final class ImapReader extends Object
             if (!$structure || !$headers) continue;
 
             $sections = [];
+
             if (isset($structure->parts)) {
                 foreach ($structure->parts as $partnum => $part) {
-                    $sections[] = imap_fetchbody($this->imap, $mailnum, $partnum);
+                	if ($readPartNum) {
+                		$partnum = $readPartNum;
+                	}
+                	$section = imap_fetchbody($this->imap, $mailnum, $partnum);
+                    $sections[] = $section;
                 }
             } else {
                 $sections[] = imap_body($this->imap, $mailnum);
